@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1 style="color: blue; font-size: 50px; text-align: center">
+      Graph data Structure
+    </h1>
+    <hr style="border: 2px solid black" />
+    <h1>Graph Adjacency List Respresentation</h1>
+    <div class="image-container">
+      <img
+        src="Assets/adjcency_list.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Input</b></div>
+    <pre
+      style="font-size: 20px; font-weight: bold; color: blue; text-align: left"
+    >
+            <code>
+              #include &lt;bits/stdc++.h&gt;
+              using namespace std;
+      
+              // Add edge
+              void addEdge(vector&lt;int&gt; adj[], int i, int j) {
+                adj[i].push_back(j);
+                adj[j].push_back(i);
+              }
+      
+              // Print the graph
+              void printGraph(vector&lt;int&gt; adj[], int V) {
+                for (int d = 0; d &lt; V; ++d) {
+                  cout &lt;&lt; "\nVertex "
+                     &lt;&lt; d &lt;&lt; " :-> ";
+                  for (auto x : adj[d])
+                    cout &lt;&lt; " " &lt;&lt; x ;
+                }
+              }
+      
+              int main() {
+                int V = 5;
+      
+                // Create a graph
+                vector&lt;int&gt; adj[V];
+      
+                // Add edges
+                addEdge(adj, 0, 1);
+                addEdge(adj, 0, 2);
+                addEdge(adj, 0, 3);
+                addEdge(adj, 1, 2);
+                addEdge(adj, 3, 4);
+                addEdge(adj, 4, 1);
+                addEdge(adj, 1, 3);
+                addEdge(adj, 0, 4);
+                printGraph(adj, V);
+              }
+      
+            </code>
+        </pre>
+    <div class="image-container">
+      <img
+        src="Assets/adjlist_op.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Output</b></div>
+
+    <hr style="border: 2px solid black" />
+    <h1>Graph BFS Traversal When Source is Given</h1>
+    <div class="image-container">
+      <img
+        src="Assets/adjcency_list.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Input</b></div>
+
+    <pre>
+            <code>
+              #include &lt;bits/stdc++.h&gt;
+              using namespace std;
+              #define ll long long int
+              
+              void bfs(vector&lt;vector&lt;int&gt;&gt; &adj, int v, int s)
+              {
+                  vector&lt;bool&gt; vis(v + 1, false);
+                  queue&lt;int&gt; q;
+                  vis[s] = true;
+                  q.push(s);
+                  while (q.empty() == false)
+                  {
+                      int u = q.front();
+                      q.pop();
+                      cout &lt;&lt; u &lt;&lt; " ";
+                      for (auto &amp;x : adj[u])
+                      {
+                          if (vis[x] == false)
+                          {
+                              vis[x] = true;
+                              q.push(x);
+                          }
+                      }
+                  }
+              }
+              
+              int main()
+              {
+                  int v, e;
+                  cin &gt;&gt; v &gt;&gt; e;
+                  vector&lt;vector&lt;int&gt;&gt; adj(v);
+                  for (int i = 0; i &lt; e; i++)
+                  {
+                      int u, v;
+                      cin &gt;&gt; u &gt;&gt; v;
+                      adj[u].push_back(v);
+                      adj[v].push_back(u);
+                  }
+                  int start_node;
+                  cin &gt;&gt; start_node;
+              
+                  bfs(adj, v, start_node);
+                  cout &lt;&lt; endl;
+              
+                  return 0;
+              }
+              
+            </code>
+        </pre>
+    <div class="image-container">
+      <img
+        src="Assets/Bfs_Traversal.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Output</b></div>
+
+    <hr style="border: 2px solid black" />
+    <h1>Graph BFS Traversal When Source is Not Given</h1>
+    <h2 style="text-align: center">
+      (Graph may be discontinous or disconnected)
+    </h2>
+
+    <div class="image-container">
+      <img
+        src="Assets/Bfs_ip_not.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Input</b></div>
+
+    <pre>
+            <code>
+              #include &lt;bits/stdtr1c++.h&gt;
+              using namespace std;
+              #define ll long long int
+      
+              void bfs(vector&lt;vector&lt;int&gt;&gt; &amp;adj, int v, int s, vector&lt;bool&gt;&amp;vis)
+              {
+                  // vector&lt;bool&gt; vis(v + 1, false);
+                  queue&lt;int&gt; q;
+                  vis[s] = true;
+                  q.push(s);
+                  while (q.empty() == false)
+                  {
+                      int u = q.front();
+                      q.pop();
+                      cout &lt;&lt; u &lt;&lt; " ";
+                      for (auto &amp;v : adj[u])
+                      {
+                          if (vis[v] == false)
+                          {
+                              vis[v] = true;
+                              q.push(v);
+                          }
+                      }
+                  }
+              }
+      
+              void bfsdis(vector&lt;vector&lt;int&gt;&gt; &amp;adj, int v)
+              {
+                  vector&lt;bool&gt; vis(v + 1, false);
+                  for (int i = 0; i &lt; v; i++)
+                  {
+                      if (vis[i] == false)
+                      {
+                          bfs(adj, v, i, vis);
+                      }
+                  }
+              }
+      
+              int main()
+              {
+                  int v, e;
+                  cin &gt;&gt; v &gt;&gt; e;
+                  vector&lt;vector&lt;int&gt;&gt; adj(v);
+                  for (int i = 0; i &lt; e; i++)
+                  {
+                      int u, v;
+                      cin &gt;&gt; u &gt;&gt; v;
+                      adj[u].push_back(v);
+                      adj[v].push_back(u);
+                  }
+                  // int start_node;
+                  // cin &gt;&gt; start_node;
+                  // bfsdis(adj, v, start_node);
+                  bfsdis(adj, v);
+                  cout &lt;&lt; endl;
+                  return 0;
+              }
+      
+            </code>
+        </pre>
+    <div class="image-container">
+      <img
+        src="Assets/BFS_ip_not_op.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Output</b></div>
+    <hr style="border: 2px solid black" />
+    <h1>Count Connected Component in an Undirected Graph (using BFS)</h1>
+    <!-- <h2 style="text-align: center;">(Graph may be discontinous or disconnected)</h2> -->
+
+    <div class="image-container">
+      <img
+        src="Assets/connected_component.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Input</b></div>
+
+    <pre>
+            <code>
+            #include &lt;bits/stdtr1c++.h&gt;
+            using namespace std;
+            #define ll long long int
+
+            void bfs(vector&lt;vector&lt;int&gt;&gt; &amp;adj, int v, int s, vector&lt;bool&gt;&amp;vis)
+            {
+                // vector&lt;bool&gt; vis(v + 1, false);
+                queue&lt;int&gt; q;
+                vis[s] = true;
+                q.push(s);
+                while (q.empty() == false)
+                {
+                    int u = q.front();
+                    q.pop();
+                    // cout &lt;&lt; u &lt;&lt; " ";
+                    for (auto &amp;v : adj[u])
+                    {
+                        if (vis[v] == false)
+                        {
+                            vis[v] = true;
+                            q.push(v);
+                        }
+                    }
+                }
+            }
+
+            int  bfsdis(vector&lt;vector&lt;int&gt;&gt; &amp;adj, int v)
+            {
+                int ct =0;
+                vector&lt;bool&gt; vis(v + 1, false);
+                for (int i = 0; i &lt; v; i++)
+                {
+                    if (vis[i] == false)
+                    {
+                        bfs(adj, v, i, vis);
+                        ct++;
+                    }
+                }
+                return ct;
+            }
+
+            int main()
+            {
+                int v, e;
+                cin &gt;&gt; v &gt;&gt; e;
+                vector&lt;vector&lt;int&gt;&gt; adj(v);
+                for (int i = 0; i &lt; e; i++)
+                {
+                    int u, v;
+                    cin &gt;&gt; u &gt;&gt; v;
+                    adj[u].push_back(v);
+                    adj[v].push_back(u);
+                }
+                // int start_node;
+                // cin &gt;&gt; start_node;
+                // bfsdis(adj, v, start_node);
+                int result =  bfsdis(adj, v);
+                cout &lt;&lt; result;
+                return 0;
+            }
+            </code>
+        </pre>
+    <div class="image-container">
+      <img
+        src="Assets/connected_com_op.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Output</b></div>
+    <hr style="border: 2px solid black" />
+    <h1>DFS Traversal when source is given</h1>
+    <!-- <h2 style="text-align: center;">(Graph may be discontinous or disconnected)</h2> -->
+
+    <div class="image-container">
+      <img
+        src="Assets/connected_component.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Input</b></div>
+
+    <pre>
+      <code>
+#include &lt;bits/stdc++.h>
+using namespace std;
+
+void dfs(vector&lt;vector&lt;int&gt;&gt; &adj, int s, vector&lt;bool&gt; &vis)
+{
+    vis[s] = true;
+    cout &lt;&lt; s &lt;&lt; " ";
+    for (auto &x : adj[s])
+    {
+        if (vis[x] == false)
+        {
+            dfs(adj, x, vis);
+        }
+    }
+}
+
+int main()
+{
+    int v, e;
+    cin &gt;&gt; v &gt;&gt; e;
+    vector&lt;vector&lt;int&gt;&gt; adj(v);
+    for (int i = 0; i &lt; e; i++)
+    {
+        int u, v;
+        cin &gt;&gt; u &gt;&gt; v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    int s;
+    cin &gt;&gt; s;
+    vector&lt;bool&gt; vis(v + 1, false);
+    dfs(adj, s, vis);
+}
+
+        </code>
+        </pre>
+    <div class="image-container">
+      <img
+        src="Assets/connected_com_op.png"
+        alt="Description of the image"
+        width="300"
+        height="200"
+      />
+    </div>
+    <div style="text-align: center; font-size: 25px"><b>Output</b></div>
+    <hr style="border: 2px solid black" />
+    <hr style="border: 2px solid black" />
+    <hr style="border: 2px solid black" />
+    <hr style="border: 2px solid black" />
+    <hr style="border: 2px solid black" />
+    <hr style="border: 2px solid black" />
+    <hr style="border: 2px solid black" />
+    <hr style="border: 2px solid black" />
+  </body>
+</html>

@@ -1,0 +1,1 @@
+{"name":"Local: rat_in_maze","url":"d:\\DSA Work\\Backtracking\\rat_in_maze.cpp","tests":[{"id":1710336196169,"input":"4\n1 0 1 1\n1 1 1 1\n0 1 0 1\n0 0 1 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA Work\\Backtracking\\rat_in_maze.cpp","group":"local","local":true}

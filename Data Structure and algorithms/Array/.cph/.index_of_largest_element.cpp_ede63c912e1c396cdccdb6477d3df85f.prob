@@ -1,0 +1,1 @@
+{"name":"Local: index_of_largest_element","url":"d:\\Array\\index_of_largest_element.cpp","tests":[{"id":1706182311718,"input":"10\n36 347634 347834 34783487 343478 3434734 34783 34  34  34789 ","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Array\\index_of_largest_element.cpp","group":"local","local":true}

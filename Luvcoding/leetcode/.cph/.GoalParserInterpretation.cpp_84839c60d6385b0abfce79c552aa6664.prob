@@ -1,0 +1,1 @@
+{"name":"Local: GoalParserInterpretation","url":"c:\\Users\\SK\\Desktop\\Luvcoding\\leetcode\\GoalParserInterpretation.cpp","tests":[{"id":1685391635967,"input":"G()(al)","output":"Goal"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\SK\\Desktop\\Luvcoding\\leetcode\\GoalParserInterpretation.cpp","group":"local","local":true}

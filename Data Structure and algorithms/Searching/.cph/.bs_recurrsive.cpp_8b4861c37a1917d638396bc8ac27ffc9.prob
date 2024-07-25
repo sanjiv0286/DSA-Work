@@ -1,0 +1,1 @@
+{"name":"Local: bs_recurrsive","url":"d:\\Searching\\bs_recurrsive.cpp","tests":[{"id":1706204923978,"input":"5 \n2 32 3278 3287 7832\n3287","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Searching\\bs_recurrsive.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: anagram","url":"d:\\DSA Work\\string\\anagram.cpp","tests":[{"id":1707203573632,"input":"5\naaafgh\nfgaaah","output":""},{"id":1707204634813,"input":"26\nabcdefghijklmnopqrstuvwxyz\nabcdefghijklmnopqrstuvwxyz","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA Work\\string\\anagram.cpp","group":"local","local":true}

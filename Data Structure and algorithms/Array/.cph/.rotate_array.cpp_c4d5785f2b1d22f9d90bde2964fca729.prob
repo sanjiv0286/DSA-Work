@@ -1,0 +1,1 @@
+{"name":"Local: rotate_array","url":"d:\\Array\\rotate_array.cpp","tests":[{"id":1706176378184,"input":"8\n34 45 43  121 121 56 1  34","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Array\\rotate_array.cpp","group":"local","local":true}
